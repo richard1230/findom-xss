@@ -30,6 +30,7 @@ This will run the tool against `domain.tld`.
 URLs can also be piped to findom-xss and scan on them. For example:
 ```
 $ cat urls.txt | ./findom-xss.sh
+$ cat urls.txt | ./findom-xss.sh >> out.txt
 ```
 
 The second argument can be used to specify an output file.
