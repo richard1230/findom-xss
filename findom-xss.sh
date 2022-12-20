@@ -10,7 +10,7 @@ echo -en "\n Find for Possible DOM Based XSS Vulnerability"
 echo -e "\033[0m"
 
 _findomXSS() {
-	PATTERN="(document|location|window)\.(URL|documentURI|search|hash|referrer|(location\.)?href|name)"
+	PATTERN="(document|location|window)\.(URL|documentURI|search|hash|referrer|(location\.)?href|name)|eval|Function|setTimeout|window.name|postMessage|innerHTML|location.pathname|document.cookie|localStorage|sessionStorage|dangerouslytSetInnerHTML|bypassSecurityTrustX|window.localStorage|window.sessionStorage "
 	BODY=$(curl -sL ${1})
 	SCAN=($(echo ${BODY} | grep -Eoin ${PATTERN}))
 	if [[ ! -z "${SCAN}" ]]; then
